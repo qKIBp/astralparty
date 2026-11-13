@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" fill="none">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0E374E" />
+    </linearGradient>
+    <linearGradient id="cyanText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <linearGradient id="btnCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="380" rx="20" fill="url(#bg2)" />
+  <circle cx="800" cy="140" r="180" fill="#0284C7" fill-opacity="0.22" filter="blur(60px)" />
+  <circle cx="220" cy="300" r="130" fill="#38BDF8" fill-opacity="0.12" filter="blur(50px)" />
+  <rect x="1.5" y="1.5" width="957" height="377" rx="18.5" stroke="#334155" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- Right Graphic: Glowing Present & Cosmic Crystal Dice (Scaled for 380h) -->
+  <g transform="translate(630, 48)">
+    <circle cx="130" cy="130" r="100" fill="#0284C7" fill-opacity="0.16" />
+    
+    <!-- Gift Box Body -->
+    <rect x="55" y="80" width="130" height="120" rx="14" fill="#0284C7" stroke="#38BDF8" stroke-width="2.5" />
+    <rect x="42" y="55" width="156" height="32" rx="8" fill="#0369A1" stroke="#38BDF8" stroke-width="2" />
+    
+    <!-- Ribbon -->
+    <rect x="108" y="55" width="24" height="145" fill="#FDE047" />
+    <circle cx="106" cy="42" r="18" fill="#FDE047" />
+    <circle cx="134" cy="42" r="18" fill="#FDE047" />
+    <circle cx="120" cy="50" r="11" fill="#F59E0B" />
+    
+    <!-- Floating Crystal Star Dice -->
+    <g transform="translate(155, 30) rotate(18)">
+      <rect width="56" height="56" rx="14" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2.5" />
+      <circle cx="28" cy="28" r="6" fill="#FFFFFF" />
+      <circle cx="16" cy="16" r="4.5" fill="#FFFFFF" />
+      <circle cx="40" cy="40" r="4.5" fill="#FFFFFF" />
+    </g>
+    
+    <!-- Sparkles -->
+    <path d="M30 40L35 52L47 57L35 62L30 74L25 62L13 57L25 52Z" fill="#FDE047" />
+    <path d="M190 180L193 190L203 193L193 196L190 206L187 196L177 193L187 190Z" fill="#38BDF8" />
+  </g>
+
+  <!-- Left Content Area (Slim & Vertically Compact) -->
+  <g transform="translate(56, 44)">
+    <!-- Event Badge -->
+    <rect width="152" height="28" rx="14" fill="#0284C7" fill-opacity="0.25" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="76" y="19" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#7DD3FC" text-anchor="middle">
+      ★ LOGIN REWARD
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="74" font-family="'Pretendard', sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="-0.03em">
+      접속만 해도 [은하수 주사위] 100% 증정!
+    </text>
+
+    <!-- Summary (Single Line) -->
+    <text x="0" y="112" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="url(#cyanText)" letter-spacing="-0.01em">
+      이벤트 기간 내 접속하는 모든 파티원 우편함으로 자동 지급됩니다
+    </text>
+
+    <!-- Horizontal Info & Button Row -->
+    <g transform="translate(0, 142)">
+      <!-- Target Tag -->
+      <rect width="210" height="38" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+      <text x="14" y="24" font-family="'Pretendard', sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        🎁 접속 파티원 전원 100% 무료
+      </text>
+
+      <!-- CTA Button Inline -->
+      <g transform="translate(224, 0)">
+        <rect width="168" height="38" rx="10" fill="url(#btnCyan)" />
+        <text x="84" y="24" font-family="'Pretendard', sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+          스킨 미리보기 →
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

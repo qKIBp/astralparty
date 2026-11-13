@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="tile1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#312E81" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="20" fill="url(#tile1Bg)" stroke="#6366F1" stroke-width="2" />
+  
+  <!-- Glowing Notice Board Graphic -->
+  <g transform="translate(40, 40)">
+    <!-- Loudspeaker / Megaphone -->
+    <path d="M40 80L110 50V150L40 120H20C14 120 10 116 10 110V90C10 84 14 80 20 80H40Z" fill="#F43F5E" />
+    <path d="M40 120L30 160H50L56 120" fill="#BE123C" />
+    <!-- Sound Waves -->
+    <path d="M125 70C135 85 135 115 125 130" stroke="#FBBF24" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M140 50C155 75 155 125 140 150" stroke="#F59E0B" stroke-width="6" stroke-linecap="round" fill="none" />
+
+    <!-- Notice Letters Stack -->
+    <g transform="translate(190, 20)">
+      <rect width="320" height="70" rx="12" fill="#0F172A" stroke="#475569" />
+      <circle cx="25" cy="35" r="8" fill="#F43F5E" />
+      <text x="45" y="32" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">[공지] 정기 점검 및 서버 안정화 완료 안내</text>
+      <text x="45" y="52" font-family="'Pretendard', sans-serif" font-size="12" fill="#94A3B8">2026.11.02 · 안정적인 멀티플레이 환경 제공</text>
+
+      <rect y="85" width="320" height="70" rx="12" fill="#0F172A" stroke="#475569" />
+      <circle cx="25" cy="120" r="8" fill="#F59E0B" />
+      <text x="45" y="117" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">[이벤트] 주말 골드 &amp; 별빛 경험치 2배 버프</text>
+      <text x="45" y="137" font-family="'Pretendard', sans-serif" font-size="12" fill="#94A3B8">2026.11.07 ~ 11.09 · 주말 보너스 혜택</text>
+
+      <rect y="170" width="320" height="70" rx="12" fill="#0F172A" stroke="#475569" />
+      <circle cx="25" cy="205" r="8" fill="#10B981" />
+      <text x="45" y="202" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">[업데이트] v1.4 신규 캐릭터 밸런스 패치</text>
+      <text x="45" y="222" font-family="'Pretendard', sans-serif" font-size="12" fill="#94A3B8">2026.10.28 · 액티브 스킬 쿨타임 조정</text>
+    </g>
+  </g>
+</svg>

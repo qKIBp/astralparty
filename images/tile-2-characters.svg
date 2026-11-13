@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="tile2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C0519" />
+      <stop offset="100%" stop-color="#831843" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="20" fill="url(#tile2Bg)" stroke="#FB7185" stroke-width="2" />
+
+  <g transform="translate(40, 40)">
+    <!-- Character Showcase Silhouette & Cards -->
+    <g transform="translate(20, 20)">
+      <!-- Chibi Heroine Avatar 1 -->
+      <circle cx="80" cy="110" r="60" fill="#FFE4E6" stroke="#F43F5E" stroke-width="4" />
+      <!-- Eyes & Smile -->
+      <ellipse cx="65" cy="105" rx="6" ry="9" fill="#9F1239" />
+      <ellipse cx="95" cy="105" rx="6" ry="9" fill="#9F1239" />
+      <path d="M72 125C76 132 84 132 88 125" stroke="#E11D48" stroke-width="3" stroke-linecap="round" />
+      <!-- Ribbon Hairpins -->
+      <path d="M40 70L55 85L40 100Z" fill="#F43F5E" />
+      <path d="M120 70L105 85L120 100Z" fill="#F43F5E" />
+      <circle cx="80" cy="80" r="12" fill="#FDE047" />
+      <text x="80" y="200" font-family="'Pretendard', sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">셜리 (Shirley)</text>
+      <text x="80" y="222" font-family="'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#FDA4AF" text-anchor="middle">공격형 · 주사위 추가 굴림</text>
+    </g>
+
+    <!-- Character Showcase 2 -->
+    <g transform="translate(190, 20)">
+      <circle cx="80" cy="110" r="60" fill="#E0F2FE" stroke="#0284C7" stroke-width="4" />
+      <ellipse cx="65" cy="105" rx="6" ry="9" fill="#0369A1" />
+      <ellipse cx="95" cy="105" rx="6" ry="9" fill="#0369A1" />
+      <path d="M72 125C76 132 84 132 88 125" stroke="#0284C7" stroke-width="3" stroke-linecap="round" />
+      <!-- Cat Ears -->
+      <path d="M35 70L55 45L70 70Z" fill="#38BDF8" />
+      <path d="M125 70L105 45L90 70Z" fill="#38BDF8" />
+      <text x="80" y="200" font-family="'Pretendard', sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">팬 (Fan)</text>
+      <text x="80" y="222" font-family="'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#BAE6FD" text-anchor="middle">지원형 · 코인 강탈 및 방어막</text>
+    </g>
+
+    <!-- Character Showcase 3 -->
+    <g transform="translate(360, 20)">
+      <circle cx="80" cy="110" r="60" fill="#FEF3C7" stroke="#D97706" stroke-width="4" />
+      <ellipse cx="65" cy="105" rx="6" ry="9" fill="#92400E" />
+      <ellipse cx="95" cy="105" rx="6" ry="9" fill="#92400E" />
+      <path d="M72 125C76 132 84 132 88 125" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
+      <!-- Witch Hat -->
+      <path d="M35 75L80 25L125 75Z" fill="#7C2D12" />
+      <text x="80" y="200" font-family="'Pretendard', sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">벨 (Belle)</text>
+      <text x="80" y="222" font-family="'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#FDE68A" text-anchor="middle">전략형 · 함정 타일 설치</text>
+    </g>
+  </g>
+
+  <!-- Bottom CTA badge -->
+  <g transform="translate(180, 310)">
+    <rect width="240" height="38" rx="19" fill="#F43F5E" />
+    <text x="120" y="24" font-family="'Pretendard', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+      캐릭터 전체 도감 보러가기 (준비중) →
+    </text>
+  </g>
+</svg>

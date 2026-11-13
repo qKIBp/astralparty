@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astral Party 공식 홈페이지 | 스팀 멀티플레이 파티 보드게임</title>
+  <meta name="description" content="우정 파괴 애니메이션 보드게임 Astral Party의 공식 웹사이트입니다. 최신 이벤트, 공지사항, 캐릭터, 카드, 맵, 상점 소식을 3D 인터랙티브 보드판 탐험으로 확인하세요." />
+  <meta property="og:title" content="Astral Party 공식 홈페이지" />
+  <meta property="og:description" content="주사위를 굴리고 카드로 승부하는 신나는 4인 멀티플레이 파티 보드게임!" />
+  <meta property="og:type" content="website" />
+
+  <!-- [1] 프리텐다드(Pretendard) 웹폰트 CDN (한글/영문 전역 적용) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+  <!-- [2] Lenis.js 부드러운 스크롤 스타일 CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
+
+  <!-- [3] Swiper.js 캐러셀 슬라이더 스타일 CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- [4] 프로젝트 커스텀 스타일 (css/style.css) -->
+  <!-- * Vercel 루트(/) 배포 기준 경로 적용 -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/webp" href="/assets/aistudio/604124_188258_e86233fa.webp" />
+</head>
+<body>
+
+  <!-- ======================================================================
+       [상단바 & 내비게이션 영역]
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- 공식 로고 -->
+      <a href="#" class="brand-logo" aria-label="Astral Party 메인 홈으로 이동">
+        <img src="/assets/aistudio/604124_188258_e86233fa.webp" alt="Astral Party 공식 로고" width="160" height="90" />
+      </a>
+
+      <!-- 내비게이션 메뉴 (데스크톱 및 모바일/태블릿 드로어) -->
+      <nav class="site-nav" id="siteNav" aria-label="메인 메뉴">
+        <ul class="nav-links">
+          <li>
+            <a href="#hero" class="nav-link">
+              <span>홈</span>
+              <svg class="mobile-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#events" class="nav-link">
+              <span>이벤트 &amp; 소식</span>
+              <svg class="mobile-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#board-tour" class="nav-link">
+              <span>3D 보드판 탐험</span>
+              <svg class="mobile-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#gallery" class="nav-link">
+              <span>인게임 갤러리</span>
+              <svg class="mobile-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#specs" class="nav-link">
+              <span>스팀 &amp; 컴퓨터 사양</span>
+              <svg class="mobile-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 우측 빠른 액션 버튼 -->
+      <div class="header-actions">
+        <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="btn btn-steam header-desktop-steam-btn" style="padding: 10px 18px; font-size: 0.85rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.604-.438 1.343-.701 2.146-.701.072 0 .143.003.214.008l3.059-4.432c-.067-.324-.103-.66-.103-1.004 0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5c-.097 0-.193-.004-.288-.01l-4.373 3.094c.005.074.008.149.008.225 0 2.21-1.79 4-4 4-1.895 0-3.486-1.317-3.896-3.087L.38 15.114C1.867 20.252 6.574 24 12.188 24 18.815 24 24 18.627 24 12S18.627 0 11.979 0z"/></svg>
+          스팀 무료 플레이
+        </a>
+        <button type="button" class="mobile-toggle" id="mobileToggleBtn" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="siteNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       [메인 콘텐츠 영역]
+       ====================================================================== -->
+  <main>
+
+    <!-- --------------------------------------------------------------------
+         1. 대문 히어로 섹션 (Hero Section)
+         -------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------
+         1. 대문 히어로 섹션 (Hero Section - 전체화면 인터랙티브 패럴렉스)
+         -------------------------------------------------------------------- -->
+    <section class="hero-section hero-fullscreen-interactive" id="hero">
+      <!-- 1. 전체화면 대표 일러스트 3D 패럴렉스 스테이지 (마우스 반응형) -->
+      <div class="hero-fullscreen-stage" id="heroFullscreenStage" aria-label="Astral Party 대표 비주얼 전체화면 스테이지">
+        <!-- 원본 고화질 대표 이미지 캔버스 (마우스 시차 틸트 & 카메라 팬) -->
+        <div class="hero-fullscreen-art-wrap" id="heroArtWrap">
+          <img 
+            src="/assets/aistudio/2622000_4_706defdf.jpg" 
+            alt="Astral Party 인게임 캐릭터 파티 대표 비주얼" 
+            class="hero-fullscreen-art"
+            id="heroFullscreenImg"
+          />
+        </div>
+
+        <!-- 마우스 커서를 따라 부드럽게 비추는 인터랙티브 스포트라이트 글로우 -->
+        <div class="hero-cursor-spotlight" id="heroCursorSpotlight" aria-hidden="true"></div>
+
+        <!-- 고급 시네마틱 비네트 & 가독성 그라디언트 스크림 (텍스트는 선명하게, 일러스트는 생생하게) -->
+        <div class="hero-cinematic-scrim" aria-hidden="true"></div>
+
+        <!-- 전체화면 씬 속 3D 깊이감으로 떠있는 인터랙티브 캐릭터 & 보드 하이라이트 핀 -->
+        <div class="hero-scene-pins" id="heroScenePins" aria-hidden="true">
+          <div class="scene-pin pin-table" style="top: 55%; left: 52%;" data-depth="2.0">
+            <span class="pin-dot"></span>
+            <span class="pin-label">🎲 4인 실시간 배틀 보드</span>
+          </div>
+          <div class="scene-pin pin-skills" style="top: 24%; left: 66%;" data-depth="2.6">
+            <span class="pin-dot"></span>
+            <span class="pin-label">⚡ 전략 카드 &amp; 필살기</span>
+          </div>
+          <div class="scene-pin pin-party" style="top: 72%; left: 80%;" data-depth="1.6">
+            <span class="pin-dot"></span>
+            <span class="pin-label">💖 30+ 매력적인 캐릭터</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우측 상단 소형 몰입 모드 아이콘 버튼 (클릭 시 모든 UI 숨김 / 클릭 또는 스크롤 시 해제) -->
+      <button type="button" class="hero-immersion-quick-btn" id="toggleImmersionBtn" aria-label="UI 숨기기 (일러스트 전체보기)" title="UI 숨기기 (화면 클릭 또는 스크롤 시 해제)">
+        <span class="hero-immersion-tooltip">UI 숨기기</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9.5V6.5A2.5 2.5 0 0 1 6.5 4H9.5"/>
+          <path d="M14.5 4H17.5A2.5 2.5 0 0 1 20 6.5V9.5"/>
+          <path d="M20 14.5V17.5A2.5 2.5 0 0 1 17.5 20H14.5"/>
+          <path d="M9.5 20H6.5A2.5 2.5 0 0 1 4 17.5V14.5"/>
+        </svg>
+      </button>
+
+      <!-- 2. 히어로 UI 오버레이 (HUD 콘텐츠 레이어) -->
+      <div class="container hero-fullscreen-container">
+        <div class="hero-fullscreen-hud" id="heroHud">
+          <div class="hero-badge-row">
+            <span class="hero-tag highlight">★ STEAM POPULAR PARTY GAME</span>
+            <span class="hero-tag">최대 4인 온라인 멀티</span>
+            <span class="hero-tag">한국어 완벽 지원</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="glow-pink">ASTRAL PARTY</span>
+          </h1>
+
+          <div class="hero-btn-group">
+            <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              지금 스팀에서 플레이
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button type="button" class="btn btn-outline open-trailer-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              트레일러 영상 보기
+            </button>
+          </div>
+
+          <div class="hero-stats-strip">
+            <div class="stat-item">
+              <h4>4 PLAYERS</h4>
+              <p>실시간 온라인 대전</p>
+            </div>
+            <div class="stat-item">
+              <h4>30+ HEROINES</h4>
+              <p>매력적인 파티 캐릭터</p>
+            </div>
+            <div class="stat-item">
+              <h4>60+ CARDS</h4>
+              <p>전략 배틀 &amp; 함정 카드</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         2. 최신 이벤트 & 게임 소개 슬라이더 (Swiper.js Carousel)
+         -------------------------------------------------------------------- -->
+    <section class="section event-slider-section" id="events">
+      <div class="container event-slider-container">
+        <div class="section-header event-section-header">
+          <div class="section-badge"><span class="dot"></span>LATEST EVENTS &amp; UPDATES</div>
+          <h2 class="section-title">진행 중인 이벤트 &amp; 소식</h2>
+          <p class="section-desc">
+            시즌 한정 페스티벌과 특별 접속 보상, 신규 맵 업데이트 소식을 놓치지 마세요!
+          </p>
+        </div>
+
+        <div class="swiper-wrapper-box">
+          <div class="swiper myEventSwiper">
+            <div class="swiper-wrapper">
+              
+              <!-- [슬라이드 1] 시즌 페스티벌 챔피언십 -->
+              <div class="swiper-slide">
+                <div class="event-banner-card">
+                  <img src="/images/event-banner-1.svg" alt="아스트랄 챔피언십 시즌 페스티벌 배너" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- [슬라이드 2] 접속 보상 한정 주사위 스킨 -->
+              <div class="swiper-slide">
+                <div class="event-banner-card">
+                  <img src="/images/event-banner-2.svg" alt="접속 보상 은하수 주사위 스킨 배너" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- [슬라이드 3] 신규 맵 & 배틀 카드 대규모 패치 -->
+              <div class="swiper-slide">
+                <div class="event-banner-card">
+                  <img src="/images/event-banner-3.svg" alt="신규 맵 및 배틀 카드 업데이트 배너" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- [슬라이드 4] 4인 멀티플레이 게임 소개 -->
+              <div class="swiper-slide">
+                <div class="event-banner-card">
+                  <img src="/images/event-banner-4.svg" alt="4인 멀티플레이 우정 파괴 게임 소개 배너" loading="lazy" />
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ★ 배너 내부 하단 엣지 프로그레스 바 (Instagram/Story 스타일 일체형) -->
+            <div class="banner-edge-progress-wrap" aria-label="이벤트 배너 진행 바">
+              <button type="button" class="edge-progress-segment active" data-slide-to="0" aria-label="1번 이벤트: 시즌 페스티벌 챔피언십">
+                <div class="edge-progress-meta">
+                  <span class="edge-progress-num">01</span>
+                  <span class="edge-progress-title">시즌 페스티벌</span>
+                </div>
+                <div class="edge-progress-track">
+                  <div class="edge-progress-fill"></div>
+                </div>
+              </button>
+              <button type="button" class="edge-progress-segment" data-slide-to="1" aria-label="2번 이벤트: 은하수 주사위 스킨">
+                <div class="edge-progress-meta">
+                  <span class="edge-progress-num">02</span>
+                  <span class="edge-progress-title">한정 주사위 스킨</span>
+                </div>
+                <div class="edge-progress-track">
+                  <div class="edge-progress-fill"></div>
+                </div>
+              </button>
+              <button type="button" class="edge-progress-segment" data-slide-to="2" aria-label="3번 이벤트: 신규 맵 &amp; 배틀 카드">
+                <div class="edge-progress-meta">
+                  <span class="edge-progress-num">03</span>
+                  <span class="edge-progress-title">신규 맵 &amp; 카드</span>
+                </div>
+                <div class="edge-progress-track">
+                  <div class="edge-progress-fill"></div>
+                </div>
+              </button>
+              <button type="button" class="edge-progress-segment" data-slide-to="3" aria-label="4번 이벤트: 4인 멀티 파티 플레이">
+                <div class="edge-progress-meta">
+                  <span class="edge-progress-num">04</span>
+                  <span class="edge-progress-title">4인 멀티 파티</span>
+                </div>
+                <div class="edge-progress-track">
+                  <div class="edge-progress-fill"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         3. ★ 3D 인게임 맵 & 주사위 보드판 탐험 (Three.js + GSAP ScrollTrigger)
+         - 실제로 인게임 보드맵을 3D로 구현하여, 스크롤을 내릴 때마다 3D 맵이
+           부드럽게 회전하며 각 타일을 강조하고 주사위 말이 이동합니다.
+         -------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------------------
+         3. ★ 전체화면 3D 인게임 보드맵 탐험 (Three.js Fullscreen Stage)
+         - 3D 보드판이 화면 전체를 채우며, 스크롤을 내릴 때마다 맵이 회전하고
+           말이 이동하며 이미지 배너, 제목, 짧은 설명이 깔끔하게 표시됩니다.
+         -------------------------------------------------------------------- -->
+    <section class="section-fullscreen-3d" id="board-tour">
+      <!-- [상단: 1~6 주사위 일자 바 탭] -->
+      <div class="board-3d-top-bar">
+        <nav class="dice-quick-pills" aria-label="주사위 눈금 바로가기">
+          <button type="button" class="dice-pill-btn is-active" data-target-dice="1">
+            <span class="dice-num">⚀</span>
+            <span class="dice-text">공지사항</span>
+          </button>
+          <button type="button" class="dice-pill-btn" data-target-dice="2">
+            <span class="dice-num">⚁</span>
+            <span class="dice-text">캐릭터</span>
+          </button>
+          <button type="button" class="dice-pill-btn" data-target-dice="3">
+            <span class="dice-num">⚂</span>
+            <span class="dice-text">배틀 카드</span>
+          </button>
+          <button type="button" class="dice-pill-btn" data-target-dice="4">
+            <span class="dice-num">⚃</span>
+            <span class="dice-text">테마 맵</span>
+          </button>
+          <button type="button" class="dice-pill-btn" data-target-dice="5">
+            <span class="dice-num">⚄</span>
+            <span class="dice-text">상점 &amp; 스킨</span>
+          </button>
+          <button type="button" class="dice-pill-btn" data-target-dice="6">
+            <span class="dice-num">⚅</span>
+            <span class="dice-text">커뮤니티</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="board-3d-split-layout">
+        
+        <!-- [왼쪽 영역: 3D 인게임 보드판 인터랙티브 스테이지] -->
+        <div class="board-3d-canvas-wrap" id="board3DCanvasWrap">
+          <canvas id="board-3d-canvas" aria-label="3D 인게임 보드맵"></canvas>
+        </div>
+
+        <!-- [오른쪽 영역: 상단 슬롯 영역 + 하단 설명 배너 영역] -->
+        <div class="board-3d-panel-wrap">
+          <div class="board-3d-panel-inner">
+            
+            <!-- [윗쪽: 3D 인터랙티브 주사위 전용 영역] -->
+            <div class="board-dice-control-area" id="boardTopSlotArea">
+              <canvas id="lucky-dice-canvas" aria-label="3D 행운의 물음표 주사위"></canvas>
+              <div class="dice-3d-hint">
+                <span class="hint-dot"></span>
+                <span>클릭하여 주사위 굴리기 · 드래그하여 회전</span>
+              </div>
+            </div>
+
+            <!-- [아랫쪽: 설명 배너 영역] -->
+            <div class="board-tile-cards-wrap">
+              
+              <!-- [1번 칸: 공지사항] -->
+              <div class="minimal-tile-card is-active notice-banner-card" id="tile-card-1" data-dice="1">
+                <div class="notice-banner-inner">
+                  <img src="/assets/aistudio/img2_40ba3161.png" alt="공지사항" class="notice-banner-bg" />
+                  <div class="notice-banner-content">
+                    <span class="notice-banner-title">NOTICE</span>
+                  </div>
+                </div>
+              </div>
+
+                <!-- [2번 칸: 캐릭터] -->
+                <div class="minimal-tile-card" id="tile-card-2" data-dice="2">
+                  <div class="minimal-card-media">
+                    <img src="/images/tile-2-characters.svg" alt="캐릭터 배너" />
+                  </div>
+                  <div class="minimal-card-info">
+                    <div class="minimal-card-header">
+                      <span class="minimal-card-dice" style="color: #fda4af;">⚁ DICE 2</span>
+                      <span class="minimal-card-tag" style="color: #fda4af;">CHARACTERS</span>
+                    </div>
+                    <h3 class="minimal-card-title">파티 캐릭터</h3>
+                    <p class="minimal-card-desc">개성 넘치는 30여 명의 히로인과 고유의 주사위 스킬.</p>
+                  </div>
+                </div>
+
+                <!-- [3번 칸: 배틀 카드] -->
+                <div class="minimal-tile-card" id="tile-card-3" data-dice="3">
+                  <div class="minimal-card-media">
+                    <img src="/images/tile-3-cards.svg" alt="배틀 카드 배너" />
+                  </div>
+                  <div class="minimal-card-info">
+                    <div class="minimal-card-header">
+                      <span class="minimal-card-dice" style="color: #a5b4fc;">⚂ DICE 3</span>
+                      <span class="minimal-card-tag" style="color: #a5b4fc;">BATTLE CARDS</span>
+                    </div>
+                    <h3 class="minimal-card-title">배틀 &amp; 함정 카드</h3>
+                    <p class="minimal-card-desc">상대를 방해하고 전세를 단숨에 뒤집는 60여 종의 전략 카드.</p>
+                  </div>
+                </div>
+
+                <!-- [4번 칸: 테마 맵] -->
+                <div class="minimal-tile-card" id="tile-card-4" data-dice="4">
+                  <div class="minimal-card-media">
+                    <img src="/images/tile-4-maps.svg" alt="테마 맵 배너" />
+                  </div>
+                  <div class="minimal-card-info">
+                    <div class="minimal-card-header">
+                      <span class="minimal-card-dice" style="color: #6ee7b7;">⚃ DICE 4</span>
+                      <span class="minimal-card-tag" style="color: #6ee7b7;">THEME MAPS</span>
+                    </div>
+                    <h3 class="minimal-card-title">테마 보드 맵</h3>
+                    <p class="minimal-card-desc">우주 정거장부터 네온 카니발까지 다채로운 기믹 보드 코스.</p>
+                  </div>
+                </div>
+
+                <!-- [5번 칸: 상점 & 재화] -->
+                <div class="minimal-tile-card notice-banner-card purchase-banner-card" id="tile-card-5" data-dice="5">
+                  <div class="notice-banner-inner">
+                    <img src="/assets/aistudio/slide_img_2_upscayl_2x_upscayl-standard-4x_1c805b96.png" alt="상점 &amp; 주사위 스킨" class="notice-banner-bg" />
+                    <div class="notice-banner-content">
+                      <span class="notice-banner-title purchase-banner-title">PURCHASE</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- [6번 칸: 커뮤니티] -->
+                <div class="minimal-tile-card" id="tile-card-6" data-dice="6">
+                  <div class="minimal-card-media">
+                    <img src="/images/tile-6-community.svg" alt="커뮤니티 배너" />
+                  </div>
+                  <div class="minimal-card-info">
+                    <div class="minimal-card-header">
+                      <span class="minimal-card-dice" style="color: #bae6fd;">⚅ DICE 6</span>
+                      <span class="minimal-card-tag" style="color: #bae6fd;">COMMUNITY</span>
+                    </div>
+                    <h3 class="minimal-card-title">건의사항 &amp; 디스코드</h3>
+                    <p class="minimal-card-desc">공식 디스코드 보이스 파티와 개발팀에 전하는 유저 건의함.</p>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         4. 스팀 게임 다운로드 & 컴퓨터 권장 사양 (Steam & System Specs)
+         -------------------------------------------------------------------- -->
+    <section class="section steam-specs-section" id="specs">
+      <div class="container">
+        <div class="steam-cta-banner">
+          <div class="steam-cta-text">
+            <h3>지금 스팀에서 무료로 플레이하세요!</h3>
+          </div>
+          <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="steam-cta-logo-btn" aria-label="Steam에서 무료로 플레이하기" title="Steam 상점에서 Astral Party 무료 플레이">
+            <img src="/assets/aistudio/logo_steam_3a4d0813.svg" alt="STEAM" class="steam-cta-logo-img" width="144" height="36" />
+          </a>
+        </div>
+
+        <!-- ==================================================================
+             [신규 추가] 실제 인게임 미디어 & 스크린샷 갤러리 영역
+             ================================================================== -->
+        <div class="ingame-gallery-section" id="gallery">
+          <div class="gallery-header">
+            <div class="section-badge"><span class="dot"></span>IN-GAME MEDIA &amp; SHOWCASE</div>
+            <h2 class="gallery-title">실제 인게임 플레이 &amp; 갤러리</h2>
+            <p class="gallery-desc">
+              귀여운 히로인들과 함께 펼쳐지는 4인 실시간 주사위 배틀과 화려한 카드 스킬 연출을 직접 확인해보세요!
+            </p>
+
+            <!-- 갤러리 필터 탭 (All / Video / Photos) -->
+            <div class="gallery-filter-tabs" role="tablist" aria-label="미디어 갤러리 필터">
+              <button type="button" class="gallery-filter-btn is-active" data-filter="all" role="tab" aria-selected="true">
+                전체 보기 (8)
+              </button>
+              <button type="button" class="gallery-filter-btn" data-filter="video" role="tab" aria-selected="false">
+                🎬 플레이 영상 (1)
+              </button>
+              <button type="button" class="gallery-filter-btn" data-filter="photo" role="tab" aria-selected="false">
+                📸 스크린샷 (7)
+              </button>
+            </div>
+          </div>
+
+          <!-- 갤러리 아이템 그리드 -->
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- 1. 스팀 공식 소개 영상 카드 (Steam Official Trailer - 3W7FQrPCK3U) -->
+            <div class="gallery-card-item is-video" data-type="video" data-video-src="https://www.youtube-nocookie.com/embed/3W7FQrPCK3U?autoplay=1&enablejsapi=1" data-video-title="Astral Party 스팀 공식 소개 트레일러">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/steam_trailer_thumb.jpg" alt="Astral Party 스팀 공식 소개 트레일러 영상 썸네일" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-play-overlay">
+                  <span class="gallery-play-halo"></span>
+                  <div class="gallery-play-btn">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <span class="gallery-duration-chip">공식 영상</span>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>스팀 공식 영상</span>
+                  <span class="gallery-dot">·</span>
+                  <span>ONLINE PARTY TRAILER</span>
+                </div>
+                <h4 class="gallery-card-name">스팀 공식 소개 트레일러</h4>
+                <p class="gallery-card-summary">스팀 상점 소개 페이지에 등록된 공식 트레일러로 매력적인 파티 게임플레이를 감상하세요.</p>
+              </div>
+            </div>
+
+            <!-- 2. 스크린샷 1: 4인 주사위 파티게임 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="0" data-full-src="/assets/gallery/gameplay_1.jpg" data-title="4인 주사위 파티게임" data-desc="친구들과 함께 주사위를 던져 판세를 뒤엎고 승리를 쟁취하는 4인 실시간 파티 보드게임!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_1.jpg" alt="4인 주사위 파티게임 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>4인 멀티플레이</span>
+                  <span class="gallery-dot">·</span>
+                  <span>다이스 파티</span>
+                </div>
+                <h4 class="gallery-card-name">4인 주사위 파티게임</h4>
+                <p class="gallery-card-summary">최대 4인의 플레이어가 주사위를 굴리며 실시간으로 펼치는 유쾌하고 치열한 보드 배틀</p>
+              </div>
+            </div>
+
+            <!-- 3. 스크린샷 2: 다양한 이벤트 패널 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="1" data-full-src="/assets/gallery/gameplay_2.jpg" data-title="다양한 이벤트 패널" data-desc="상점 쇼핑, 기습 함정, 버프 등 발판마다 색다르게 터지는 전략적인 특수 이벤트 패널!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_2.jpg" alt="다양한 이벤트 패널 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>필드 기믹</span>
+                  <span class="gallery-dot">·</span>
+                  <span>서프라이즈 패널</span>
+                </div>
+                <h4 class="gallery-card-name">다양한 이벤트 패널</h4>
+                <p class="gallery-card-summary">보드 곳곳에 배치된 상점, 함정, 버프 타일로 매 턴 새로운 전략과 반전을 경험하세요.</p>
+              </div>
+            </div>
+
+            <!-- 4. 스크린샷 3: 개성 넘치는 캐릭터 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="2" data-full-src="/assets/gallery/gameplay_3.jpg" data-title="개성 넘치는 캐릭터" data-desc="익살스러운 표정과 귀여운 도트 애니메이션, 화려한 스킬 연출로 무장한 매력 만점 캐릭터들!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_3.jpg" alt="개성 넘치는 캐릭터 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>매력 만점 캐릭터</span>
+                  <span class="gallery-dot">·</span>
+                  <span>SD &amp; 컷인 연출</span>
+                </div>
+                <h4 class="gallery-card-name">개성 넘치는 캐릭터</h4>
+                <p class="gallery-card-summary">고유한 능력과 매력적인 비주얼을 자랑하는 캐릭터들과 함께 활기찬 파티를 즐겨보세요.</p>
+              </div>
+            </div>
+
+            <!-- 5. 스크린샷 4: 긴장감 넘치는 전투시스템 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="3" data-full-src="/assets/gallery/gameplay_4.jpg" data-title="긴장감 넘치는 전투시스템" data-desc="공격 주사위와 방어 주사위 눈금 하나로 승패가 엇갈리는 숨 막히는 다이스 공방전!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_4.jpg" alt="긴장감 넘치는 전투시스템 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>다이스 배틀</span>
+                  <span class="gallery-dot">·</span>
+                  <span>숨 막히는 공방전</span>
+                </div>
+                <h4 class="gallery-card-name">긴장감 넘치는 전투시스템</h4>
+                <p class="gallery-card-summary">주사위의 운과 카드의 전술이 맞물려 마지막 순간까지 방심할 수 없는 박진감 넘치는 전투</p>
+              </div>
+            </div>
+
+            <!-- 6. 스크린샷 5: PVP (실시간 대인전) -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="4" data-full-src="/assets/gallery/gameplay_5.jpg" data-title="치열한 실시간 PVP 난투" data-desc="서로의 진로를 방해하고 치열한 수싸움 끝에 최종 1인을 가리는 짜릿한 실시간 대인전!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_5.jpg" alt="실시간 PVP 난투 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>실시간 PVP</span>
+                  <span class="gallery-dot">·</span>
+                  <span>멀티플레이 난투</span>
+                </div>
+                <h4 class="gallery-card-name">치열한 실시간 PVP 난투</h4>
+                <p class="gallery-card-summary">친구 또는 전 세계 라이벌들과 실시간으로 카드를 격돌시키며 승리를 쟁취하는 대인전</p>
+              </div>
+            </div>
+
+            <!-- 7. 스크린샷 6: 협동 PVE 보스 몬스터 처치 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="5" data-full-src="/assets/gallery/gameplay_6.jpg" data-title="협동 PVE 보스 몬스터 처치" data-desc="보드판 위에 갑작스레 출현한 거대 보스 몬스터를 함께 공략하는 흥미진진한 PVE 협동 모드!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_6.jpg" alt="협동 PVE 보스 몬스터 처치 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>협동 PVE</span>
+                  <span class="gallery-dot">·</span>
+                  <span>보스 레이드</span>
+                </div>
+                <h4 class="gallery-card-name">협동 PVE 보스 몬스터 처치</h4>
+                <p class="gallery-card-summary">필드를 위협하는 강력한 몬스터에 맞서 팀원들과 협동하고 특별한 레이드 보상을 획득하세요.</p>
+              </div>
+            </div>
+
+            <!-- 8. 스크린샷 7: 이벤트 -->
+            <div class="gallery-card-item is-photo" data-type="photo" data-index="6" data-full-src="/assets/gallery/gameplay_7.jpg" data-title="매 시즌 펼쳐지는 축제 이벤트" data-desc="한정 주사위 스킨, 특별 코스튬과 푸짐한 퀘스트 보상이 쏟아지는 시즌 한정 페스티벌!">
+              <div class="gallery-card-media">
+                <img src="/assets/gallery/gameplay_7.jpg" alt="시즌 페스티벌 및 다채로운 이벤트 인게임 스크린샷" class="gallery-card-img" loading="lazy" />
+                <div class="gallery-hover-overlay">
+                  <div class="gallery-zoom-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>원본 확대</span>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-card-body">
+                <div class="gallery-card-meta">
+                  <span>시즌 페스티벌</span>
+                  <span class="gallery-dot">·</span>
+                  <span>특별 퀘스트 &amp; 보상</span>
+                </div>
+                <h4 class="gallery-card-name">매 시즌 펼쳐지는 축제 이벤트</h4>
+                <p class="gallery-card-summary">정기적으로 진행되는 다채로운 시즌 이벤트에 참여하고 한정 코스튬과 주사위 스킨을 수집하세요.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="specs-box">
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; text-align: center;">PC 시스템 사양 안내</h3>
+          <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">
+            가벼운 캐주얼 게임으로 대부분의 일반 PC 및 노트북에서 부드럽게 구동됩니다.
+          </p>
+
+          <div class="specs-grid">
+            <div class="specs-column">
+              <h4>최소 사양 (MINIMUM)</h4>
+              <div class="specs-list">
+                <div class="specs-row">
+                  <span class="specs-label">운영체제</span>
+                  <span class="specs-val">Windows 10 64-bit</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">프로세서</span>
+                  <span class="specs-val">Intel Core i3-4160 / AMD 동급</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">메모리</span>
+                  <span class="specs-val">4 GB RAM</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">그래픽</span>
+                  <span class="specs-val">NVIDIA GeForce GTX 750 / AMD 동급</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">저장공간</span>
+                  <span class="specs-val">4 GB 여유 공간</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="specs-column">
+              <h4>권장 사양 (RECOMMENDED)</h4>
+              <div class="specs-list">
+                <div class="specs-row">
+                  <span class="specs-label">운영체제</span>
+                  <span class="specs-val">Windows 10 / 11 64-bit</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">프로세서</span>
+                  <span class="specs-val">Intel Core i5-7400 / AMD Ryzen 5</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">메모리</span>
+                  <span class="specs-val">8 GB RAM</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">그래픽</span>
+                  <span class="specs-val">NVIDIA GeForce GTX 1060 이상</span>
+                </div>
+                <div class="specs-row">
+                  <span class="specs-label">네트워크</span>
+                  <span class="specs-val">초고속 인터넷 연결</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       [인게임 스타일 이벤트 플로팅 버튼 (Floating Event Button)]
+       - 유저 요청: 원형 캐릭터 아바타 + 기간(10.15-11.12) + 하단 캡슐(환상의 기사)
+       - 화면 우측 하단에 고정되어 게임 로비 감성으로 은은하게 떠있음
+       - 클릭 시 '환상의 기사' 한정 픽업 이벤트 상세 팝업 오픈
+       ====================================================================== -->
+  <div class="astral-floating-widget" id="astralFloatingWidget" role="region" aria-label="시즌 한정 이벤트 바로가기">
+    <!-- 플로팅 버튼 닫기/숨기기 작은 X 버튼 -->
+    <button type="button" class="floating-widget-close-btn" id="floatingWidgetClose" title="이벤트 버튼 숨기기" aria-label="이벤트 버튼 숨기기">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <!-- 플로팅 버튼 본체 (클릭 시 모달 열림) -->
+    <button type="button" class="astral-floating-btn" id="astralFloatingBtn" aria-label="환상의 기사 시즌 이벤트 자세히 보기">
+      <!-- 캐릭터 + 날짜 + 환상의 기사 뱃지 이미지 -->
+      <img 
+        src="/images/floating-event-btn-clean.png" 
+        alt="환상의 기사 10.15-11.12 (UTC+8) 시즌 이벤트" 
+        class="floating-badge-img"
+        loading="lazy"
+      />
+      <!-- 은은하게 퍼지는 펄스 링 효과 -->
+      <span class="floating-glow-pulse"></span>
+    </button>
+  </div>
+
+  <!-- 플로팅 버튼을 닫았을 때 다시 띄우는 작은 복원 칩 -->
+  <button type="button" class="floating-widget-reopen-chip" id="floatingWidgetReopen" title="환상의 기사 이벤트 버튼 다시 표시">
+    <span class="reopen-badge-dot"></span>
+    <span>✨ 환상의 기사 (10.15~11.12)</span>
+  </button>
+
+  <!-- ======================================================================
+       [환상의 기사 (Fantasy Knight) 시즌 한정 이벤트 상세 팝업 모달]
+       ====================================================================== -->
+  <div class="knight-event-modal-backdrop" id="knightEventModal" aria-hidden="true">
+    <div class="knight-event-modal-window" role="dialog" aria-modal="true" aria-labelledby="knightModalTitle">
+      <!-- 모달 상단 헤더 -->
+      <div class="modal-header">
+        <div class="knight-modal-header-badge">
+          <span class="badge-pulsing-dot"></span>
+          <span>LIMITED PICKUP EVENT</span>
+        </div>
+        <button type="button" class="modal-close-btn knight-modal-close" aria-label="팝업 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- 모달 본문 콘텐츠 -->
+      <div class="knight-modal-content">
+        <!-- 상단 캐릭터 비주얼 & 기간 소개 -->
+        <div class="knight-hero-row">
+          <div class="knight-avatar-preview">
+            <img src="/images/floating-event-btn-clean.png" alt="환상의 기사 아바타" />
+          </div>
+          <div class="knight-hero-info">
+            <span class="knight-date-badge">📅 10.15 - 11.12 (UTC+8) · 이벤트 진행 중</span>
+            <h3 class="knight-modal-title" id="knightModalTitle">시즌 한정 픽업: 환상의 기사</h3>
+            <p class="knight-modal-desc">
+              전장을 수호하는 황금빛 긍지의 기사가 드디어 아스트랄 파티에 강림했습니다!<br />
+              전용 주사위 눈금 보너스와 적의 이동을 차단하는 결계 스킬을 보유한 신규 캐릭터와 한정 코스튬을 지금 만나보세요.
+            </p>
+          </div>
+        </div>
+
+        <!-- 이벤트 핵심 혜택 및 미션 카드 3종 -->
+        <div class="knight-features-grid">
+          <div class="knight-feature-card">
+            <div class="kf-icon">🎁</div>
+            <div class="kf-text">
+              <h4>일일 출석 보상</h4>
+              <p>이벤트 기간 매일 접속 시 별빛 다이아몬드 300개와 전용 소환권 1장 지급</p>
+            </div>
+          </div>
+          <div class="knight-feature-card">
+            <div class="kf-icon">🎲</div>
+            <div class="kf-text">
+              <h4>보드판 완주 챌린지</h4>
+              <p>테마 보드판 10회 완주 달성 시 한정 코스튬 [황금빛 서약] 100% 무료 획득</p>
+            </div>
+          </div>
+          <div class="knight-feature-card">
+            <div class="kf-icon">🏆</div>
+            <div class="kf-text">
+              <h4>4인 파티 승리 보너스</h4>
+              <p>친구들과 4인 멀티플레이 3승 달성 시 한정 [기사의 맹세] 주사위 스킨 해금</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 하단 액션 버튼 그룹 -->
+        <div class="knight-modal-actions">
+          <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-steam-play" style="flex: 1.2; padding: 14px 22px;">
+            스팀에서 지금 플레이하기
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button type="button" class="btn btn-outline knight-jump-events-btn" style="flex: 1; padding: 14px 18px;">
+            이벤트 슬라이더 보기
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       [영상 트레일러 모달 팝업]
+       ====================================================================== -->
+  <div class="video-modal-backdrop" id="trailerVideoModal" aria-hidden="true">
+    <div class="video-modal-window" role="dialog" aria-modal="true" aria-labelledby="trailerModalTitle">
+      <div class="modal-header">
+        <span class="modal-title" id="trailerModalTitle">Astral Party 공식 게임플레이 트레일러</span>
+        <button type="button" class="modal-close-btn video-modal-close" id="trailerCloseBtn" aria-label="팝업 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-video-box">
+        <iframe 
+          id="trailerIframe"
+          src="" 
+          data-src="https://www.youtube-nocookie.com/embed/gvMz1hC8lWM?autoplay=1&enablejsapi=1"
+          title="Astral Party Official PV Trailer" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       [인게임 미디어 갤러리 라이트박스 팝업]
+       ====================================================================== -->
+  <div class="gallery-lightbox-backdrop" id="galleryLightbox" aria-hidden="true">
+    <div class="gallery-lightbox-window" role="dialog" aria-modal="true" aria-labelledby="galleryLightboxTitle">
+      <div class="gallery-lightbox-header">
+        <div class="gallery-lightbox-title-wrap">
+          <span class="gallery-lightbox-badge">IN-GAME SCREENSHOT</span>
+          <span class="gallery-lightbox-title" id="galleryLightboxTitle">인게임 스크린샷</span>
+        </div>
+        <div class="gallery-lightbox-actions">
+          <span class="gallery-lightbox-counter" id="galleryLightboxCounter">1 / 7</span>
+          <button type="button" class="modal-close-btn gallery-lightbox-close" id="galleryLightboxClose" aria-label="팝업 닫기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-lightbox-stage">
+        <button type="button" class="gallery-lightbox-nav prev" id="galleryLightboxPrev" aria-label="이전 이미지 보기">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="gallery-lightbox-img-wrap">
+          <img src="/assets/gallery/gameplay_1.jpg" alt="" id="galleryLightboxImg" class="gallery-lightbox-img" />
+        </div>
+        <button type="button" class="gallery-lightbox-nav next" id="galleryLightboxNext" aria-label="다음 이미지 보기">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+      <div class="gallery-lightbox-caption">
+        <p id="galleryLightboxDesc">스크린샷 상세 설명</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       [바닥글 푸터 (Footer)]
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="brand-logo" aria-label="Astral Party 메인 홈으로 이동">
+          <img src="/assets/aistudio/604124_188258_e86233fa.webp" alt="Astral Party 공식 로고" width="160" height="90" />
+        </a>
+
+        <ul class="footer-links">
+          <li><a href="#events">이벤트</a></li>
+          <li><a href="#board-tour">3D 보드판 탐험</a></li>
+          <li><a href="#gallery">인게임 갤러리</a></li>
+          <li><a href="#specs">시스템 사양</a></li>
+          <li><a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer">스팀 상점</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Astral Party. All rights reserved. 100% 바닐라 HTML/CSS/JS 템플릿.</p>
+        <button type="button" class="back-to-top-btn" aria-label="화면 맨 위로 스크롤">
+          맨 위로 이동
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       [외부 스크립트 라이브러리 (CDN)]
+       ====================================================================== -->
+  <!-- 1. Three.js 3D 그래픽 코어 라이브러리 (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- 2. GSAP 메인 코어 라이브러리 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- 3. GSAP ScrollTrigger 스크롤 감지 플러그인 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- 4. Lenis.js 부드러운 감속 스크롤 라이브러리 -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- 5. Swiper.js 캐러셀 슬라이더 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- [6. 프로젝트 메인 스크립트 (script/main.js)] -->
+  <!-- * Vite 번들링 및 Vercel 루트(/) 기준 경로 적용 -->
+  <script type="module" src="/script/main.js"></script>
+</body>
+</html>

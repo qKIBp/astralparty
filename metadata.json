@@ -1,0 +1,6 @@
+{
+  "name": "Astral Party Official Site",
+  "description": "Astral Party official website featuring 1-6 dice board exploration with GSAP & ScrollTrigger, Swiper event slider, Lenis smooth scrolling, and Pretendard font in pure Vanilla HTML/CSS/JS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

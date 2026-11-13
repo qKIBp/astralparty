@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E30" />
+      <stop offset="50%" stop-color="#243B55" />
+      <stop offset="100%" stop-color="#1A102F" />
+    </linearGradient>
+    <linearGradient id="purpleText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#F472B6" />
+    </linearGradient>
+    <linearGradient id="btnPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="380" rx="20" fill="url(#bg3)" />
+  <circle cx="780" cy="150" r="190" fill="#9333EA" fill-opacity="0.22" filter="blur(65px)" />
+  <circle cx="180" cy="280" r="130" fill="#C084FC" fill-opacity="0.12" filter="blur(50px)" />
+  <rect x="1.5" y="1.5" width="957" height="377" rx="18.5" stroke="#475569" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- Right Graphic: 3 Glowing Game Cards (Scaled for 380h) -->
+  <g transform="translate(640, 52)">
+    <!-- Card 1 (Back Left) -->
+    <g transform="translate(0, 30) rotate(-14)">
+      <rect width="90" height="136" rx="12" fill="#312E81" stroke="#6366F1" stroke-width="2.5" />
+      <circle cx="45" cy="55" r="22" fill="#4338CA" />
+      <text x="45" y="62" font-family="'Pretendard', sans-serif" font-size="18" fill="#A5B4FC" text-anchor="middle">★</text>
+      <rect x="16" y="92" width="58" height="8" rx="4" fill="#6366F1" />
+      <rect x="22" y="106" width="46" height="6" rx="3" fill="#4F46E5" />
+    </g>
+
+    <!-- Card 2 (Back Right) -->
+    <g transform="translate(105, 15) rotate(14)">
+      <rect width="90" height="136" rx="12" fill="#701A75" stroke="#D946EF" stroke-width="2.5" />
+      <circle cx="45" cy="55" r="22" fill="#86198F" />
+      <text x="45" y="62" font-family="'Pretendard', sans-serif" font-size="18" fill="#F5D0FE" text-anchor="middle">⚡</text>
+      <rect x="16" y="92" width="58" height="8" rx="4" fill="#D946EF" />
+      <rect x="22" y="106" width="46" height="6" rx="3" fill="#A21CAF" />
+    </g>
+
+    <!-- Card 3 (Center Foreground) -->
+    <g transform="translate(50, 48)">
+      <rect width="102" height="152" rx="14" fill="#18181B" stroke="#FDE047" stroke-width="2.8" />
+      <circle cx="51" cy="60" r="25" fill="#27272A" stroke="#F59E0B" stroke-width="1.8" />
+      <text x="51" y="68" font-family="'Pretendard', sans-serif" font-size="24" fill="#FDE047" text-anchor="middle">👑</text>
+      <text x="51" y="104" font-family="'Pretendard', sans-serif" font-size="11" font-weight="700" fill="#FEF08A" text-anchor="middle">우정 파괴 광선</text>
+      <rect x="18" y="116" width="66" height="6" rx="3" fill="#52525B" />
+      <rect x="24" y="128" width="54" height="6" rx="3" fill="#3F3F46" />
+    </g>
+  </g>
+
+  <!-- Left Content Area (Slim & Vertically Compact) -->
+  <g transform="translate(56, 44)">
+    <!-- Event Badge -->
+    <rect width="156" height="28" rx="14" fill="#9333EA" fill-opacity="0.25" stroke="#C084FC" stroke-width="1.5" />
+    <text x="78" y="19" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#E9D5FF" text-anchor="middle">
+      ★ MAJOR UPDATE
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="74" font-family="'Pretendard', sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="-0.03em">
+      신규 맵 [스타더스트] &amp; 카드 12종!
+    </text>
+
+    <!-- Summary (Single Line) -->
+    <text x="0" y="112" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="url(#purpleText)" letter-spacing="-0.01em">
+      주사위를 조작하고 코인을 빼앗는 예측불가 우정 파괴 배틀의 시작
+    </text>
+
+    <!-- Horizontal Info & Button Row -->
+    <g transform="translate(0, 142)">
+      <!-- Patch Version Tag -->
+      <rect width="210" height="38" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+      <text x="14" y="24" font-family="'Pretendard', sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        ⚡ v1.4.0 대규모 패치 적용
+      </text>
+
+      <!-- CTA Button Inline -->
+      <g transform="translate(224, 0)">
+        <rect width="168" height="38" rx="10" fill="url(#btnPurple)" />
+        <text x="84" y="24" font-family="'Pretendard', sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+          패치노트 확인 →
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

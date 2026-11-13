@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" fill="none">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="50%" stop-color="#2E1065" />
+      <stop offset="100%" stop-color="#3B0764" />
+    </linearGradient>
+    <linearGradient id="pinkOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+    <linearGradient id="btnParty" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="380" rx="20" fill="url(#bg4)" />
+  <circle cx="780" cy="150" r="190" fill="#E11D48" fill-opacity="0.22" filter="blur(65px)" />
+  <circle cx="190" cy="290" r="130" fill="#8B5CF6" fill-opacity="0.12" filter="blur(50px)" />
+  <rect x="1.5" y="1.5" width="957" height="377" rx="18.5" stroke="#475569" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- Right Graphic: 4-Player Pawns & Party Board Grid (Scaled for 380h) -->
+  <g transform="translate(630, 48)">
+    <!-- Board Ring Grid -->
+    <ellipse cx="140" cy="145" rx="120" ry="46" fill="none" stroke="#6366F1" stroke-width="3" stroke-dasharray="6 6" />
+    
+    <!-- Player 1 (Red) -->
+    <g transform="translate(50, 85)">
+      <circle cx="16" cy="16" r="15" fill="#F43F5E" stroke="#FFFFFF" stroke-width="2.5" />
+      <path d="M11 21C11 16 21 16 21 21" stroke="#FFFFFF" stroke-width="2" />
+      <circle cx="13" cy="14" r="2" fill="#FFFFFF" />
+      <circle cx="19" cy="14" r="2" fill="#FFFFFF" />
+      <text x="16" y="44" font-family="'Pretendard', sans-serif" font-size="10" font-weight="800" fill="#FDA4AF" text-anchor="middle">P1</text>
+    </g>
+
+    <!-- Player 2 (Blue) -->
+    <g transform="translate(115, 50)">
+      <circle cx="16" cy="16" r="15" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2.5" />
+      <circle cx="13" cy="14" r="2" fill="#FFFFFF" />
+      <circle cx="19" cy="14" r="2" fill="#FFFFFF" />
+      <text x="16" y="44" font-family="'Pretendard', sans-serif" font-size="10" font-weight="800" fill="#BAE6FD" text-anchor="middle">P2</text>
+    </g>
+
+    <!-- Player 3 (Yellow) -->
+    <g transform="translate(190, 70)">
+      <circle cx="16" cy="16" r="15" fill="#FBBF24" stroke="#FFFFFF" stroke-width="2.5" />
+      <circle cx="13" cy="14" r="2" fill="#18181B" />
+      <circle cx="19" cy="14" r="2" fill="#18181B" />
+      <text x="16" y="44" font-family="'Pretendard', sans-serif" font-size="10" font-weight="800" fill="#FEF08A" text-anchor="middle">P3</text>
+    </g>
+
+    <!-- Player 4 (Green) -->
+    <g transform="translate(140, 135)">
+      <circle cx="16" cy="16" r="15" fill="#34D399" stroke="#FFFFFF" stroke-width="2.5" />
+      <circle cx="13" cy="14" r="2" fill="#FFFFFF" />
+      <circle cx="19" cy="14" r="2" fill="#FFFFFF" />
+      <text x="16" y="44" font-family="'Pretendard', sans-serif" font-size="10" font-weight="800" fill="#A7F3D0" text-anchor="middle">P4</text>
+    </g>
+  </g>
+
+  <!-- Left Content Area (Slim & Vertically Compact) -->
+  <g transform="translate(56, 44)">
+    <!-- Event Badge -->
+    <rect width="160" height="28" rx="14" fill="#E11D48" fill-opacity="0.25" stroke="#FB7185" stroke-width="1.5" />
+    <text x="80" y="19" font-family="'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#FECDD3" text-anchor="middle">
+      ★ GAME HIGHLIGHT
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="74" font-family="'Pretendard', sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="-0.03em">
+      4인 멀티플레이 우정 파괴 파티!
+    </text>
+
+    <!-- Summary (Single Line) -->
+    <text x="0" y="112" font-family="'Pretendard', sans-serif" font-size="16" font-weight="600" fill="url(#pinkOrange)" letter-spacing="-0.01em">
+      누구나 쉬운 주사위 룰부터 반전의 카드 역전승까지 지금 즐기세요
+    </text>
+
+    <!-- Horizontal Info & Button Row -->
+    <g transform="translate(0, 142)">
+      <!-- Platform Tag -->
+      <rect width="210" height="38" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+      <text x="14" y="24" font-family="'Pretendard', sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        🎮 Steam (무료 다운로드 지원)
+      </text>
+
+      <!-- CTA Button Inline -->
+      <g transform="translate(224, 0)">
+        <rect width="168" height="38" rx="10" fill="url(#btnParty)" />
+        <text x="84" y="24" font-family="'Pretendard', sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+          스팀 무료 플레이 →
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
