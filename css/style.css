@@ -1,22 +1,5 @@
 @charset "UTF-8";
 
-/* [무료 폰트: 카페24 써라운드 (동글동글하고 두꺼운 헤드라인 폰트)] */
-@font-face {
-  font-family: 'Cafe24Ssurround';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cafe24Ssurround';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ==========================================================================
    [전역 디자인 시스템 & 테마 변수]
    - Astral Party 특유의 발랄하고 귀여운 코스믹 보드게임 테마 색상입니다.
@@ -1335,12 +1318,12 @@ body.immersion-mode-active .hero-cursor-spotlight {
   pointer-events: none;
 }
 
-/* 1번 NOTICE 및 5번 PURCHASE 공통 타이틀 스타일 (동일한 2.85rem 크기 & 카페24 써라운드) */
+/* 1번 NOTICE 및 5번 PURCHASE 공통 타이틀 스타일 (Pretendard 통일) */
 .notice-banner-title,
 .purchase-banner-title {
-  font-family: 'Cafe24Ssurround', var(--font-family), sans-serif;
+  font-family: var(--font-family);
   font-size: 2.85rem !important; /* 두 배너 완전 동일한 고정 폰트 크기 */
-  font-weight: 700;
+  font-weight: 900;
   color: #ffffff;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -1569,13 +1552,13 @@ body.immersion-mode-active .hero-cursor-spotlight {
 }
 
 .gallery-title {
-  font-family: 'Cafe24Ssurround', var(--font-family);
+  font-family: var(--font-family);
   font-size: clamp(2rem, 3.8vw, 2.7rem);
-  font-weight: 700;
+  font-weight: 900;
   color: #ffffff;
   margin-top: 14px;
   margin-bottom: 12px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 

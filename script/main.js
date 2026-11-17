@@ -14,6 +14,32 @@
 const initAstralParty = () => {
   console.log('%c🎲 Astral Party Fullscreen 3D Board Loaded!', 'color: #f43f5e; font-size: 16px; font-weight: bold;');
 
+  // 화면에 보일 때 + 활성 탭일 때만 애니메이션 루프를 실행하도록 제어하는 공통 유틸리티
+  const observeVisibility = (targetEl, onChange, rootMargin = '120px 0px') => {
+    if (!targetEl) return;
+    let inViewport = typeof IntersectionObserver === 'undefined';
+
+    const notify = () => {
+      onChange(inViewport && !document.hidden);
+    };
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            inViewport = entry.isIntersecting;
+            notify();
+          });
+        },
+        { rootMargin, threshold: 0 }
+      );
+      observer.observe(targetEl);
+    }
+
+    document.addEventListener('visibilitychange', notify);
+    if (inViewport) notify();
+  };
+
   // --------------------------------------------------------------------------
   // 1. Lenis 부드러운 스크롤 (Smooth Scroll) 초기화
   // --------------------------------------------------------------------------
@@ -204,7 +230,7 @@ const initAstralParty = () => {
     });
     renderer.setSize(width, height, false);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    if (renderer.outputColorSpace) {
+    if ('outputColorSpace' in renderer) {
       renderer.outputColorSpace = THREE.SRGBColorSpace;
     }
 
@@ -220,7 +246,7 @@ const initAstralParty = () => {
     dirLight2.position.set(-12, 18, -12);
     scene.add(dirLight2);
 
-    const pointLight = new THREE.PointLight(0x60a5fa, 2.2, 35);
+    const pointLight = new THREE.PointLight(0x60a5fa, 2.2, 35, 0);
     pointLight.position.set(0, 4.5, 0);
     scene.add(pointLight);
 
@@ -397,7 +423,7 @@ const initAstralParty = () => {
     pawnGroup.add(crownMesh);
 
     // 말 전용 발광 포인트 라이트 (말의 머리와 서 있는 타일을 화사하게 비춰줌)
-    const pawnLight = new THREE.PointLight(0xfef08a, 1.4, 4.5);
+    const pawnLight = new THREE.PointLight(0xfef08a, 1.4, 4.5, 0);
     pawnLight.position.y = 1.35;
     pawnGroup.add(pawnLight);
 
@@ -674,13 +700,19 @@ const initAstralParty = () => {
       pawnJumpProgress = 0;
     };
 
-    // [렌더 루프]
-    let clock = new THREE.Clock();
+    // [렌더 루프 - IntersectionObserver로 화면에 보일 때만 렌더링]
+    const clock = new THREE.Clock();
+    let boardRafId = null;
+    let isBoardRenderingActive = false;
 
     function animate() {
-      requestAnimationFrame(animate);
+      if (!isBoardRenderingActive) {
+        boardRafId = null;
+        return;
+      }
+      boardRafId = requestAnimationFrame(animate);
 
-      const delta = clock.getDelta();
+      const delta = Math.min(clock.getDelta(), 0.05);
       const time = clock.getElapsedTime();
 
       // 1. 보드맵 부드러운 감속 회전
@@ -715,7 +747,20 @@ const initAstralParty = () => {
       renderer.render(scene, camera);
     }
 
-    animate();
+    // 초기 1회 정지 프레임 렌더 후, 화면에 보일 때만 루프 실행
+    renderer.render(scene, camera);
+    observeVisibility(canvasWrap || canvas3D, (shouldRun) => {
+      isBoardRenderingActive = shouldRun;
+      if (shouldRun) {
+        clock.getDelta();
+        if (boardRafId === null) {
+          boardRafId = requestAnimationFrame(animate);
+        }
+      } else if (boardRafId !== null) {
+        cancelAnimationFrame(boardRafId);
+        boardRafId = null;
+      }
+    });
 
     // 화면 리사이즈 (캔버스 랩 크기 기준 + 모바일 비율 대응)
     const handleBoardResize = () => {
@@ -866,7 +911,14 @@ const initAstralParty = () => {
         }
       };
 
+      let heroRafId = null;
+      let isHeroParallaxActive = false;
+
       const animateHeroFullscreen = () => {
+        if (!isHeroParallaxActive) {
+          heroRafId = null;
+          return;
+        }
         // 부드러운 가속/감속 보간 (lerp)
         currentArtX += (targetArtX - currentArtX) * 0.07;
         currentArtY += (targetArtY - currentArtY) * 0.07;
@@ -890,12 +942,22 @@ const initAstralParty = () => {
           heroHudEl.style.transform = `translate3d(${hudShiftX.toFixed(1)}px, ${hudShiftY.toFixed(1)}px, 0)`;
         }
 
-        requestAnimationFrame(animateHeroFullscreen);
+        heroRafId = requestAnimationFrame(animateHeroFullscreen);
       };
 
       heroSectionEl.addEventListener('mousemove', onHeroMouseMove, { passive: true });
       heroSectionEl.addEventListener('mouseleave', onHeroMouseLeave, { passive: true });
-      animateHeroFullscreen();
+      observeVisibility(heroSectionEl, (shouldRun) => {
+        isHeroParallaxActive = shouldRun;
+        if (shouldRun) {
+          if (heroRafId === null) {
+            heroRafId = requestAnimationFrame(animateHeroFullscreen);
+          }
+        } else if (heroRafId !== null) {
+          cancelAnimationFrame(heroRafId);
+          heroRafId = null;
+        }
+      });
 
       // [C. 몰입 모드 (Immersion Mode) 핸들러 - 우측 상단 소형 버튼 & 클릭/스크롤 시 즉시 해제]
       if (toggleImmersionBtn) {
@@ -1086,7 +1148,7 @@ const initAstralParty = () => {
       drawCorner(28, 484, -Math.PI / 2);
 
       // 4. 중앙 볼드 ? 마크 (입체 그라디언트 + 강렬한 다크 아웃라인)
-      ctx.font = '900 250px "Pretendard", "Arial Black", sans-serif';
+      ctx.font = '900 250px "Pretendard Variable", "Pretendard", "Arial Black", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
@@ -1108,7 +1170,7 @@ const initAstralParty = () => {
       ctx.fillText('?', 256, 256);
 
       // 5. 우측 상단 조그마한 주사위 넘버 핍 (1~6 눈금)
-      ctx.font = '900 46px "Pretendard", sans-serif';
+      ctx.font = '900 46px "Pretendard Variable", "Pretendard", sans-serif';
       ctx.fillStyle = '#64748b';
       ctx.fillText(`${diceNumber}`, 430, 84);
 
@@ -1283,12 +1345,18 @@ const initAstralParty = () => {
       }
     };
 
-    // 렌더 애니메이션 루프
+    // 렌더 애니메이션 루프 - IntersectionObserver로 화면에 보일 때만 렌더링
     const diceClock = new THREE.Clock();
+    let diceRafId = null;
+    let isDiceRenderingActive = false;
 
     function animateDice() {
-      requestAnimationFrame(animateDice);
-      const delta = diceClock.getDelta();
+      if (!isDiceRenderingActive) {
+        diceRafId = null;
+        return;
+      }
+      diceRafId = requestAnimationFrame(animateDice);
+      const delta = Math.min(diceClock.getDelta(), 0.05);
       const time = diceClock.getElapsedTime();
 
       // 1. 주사위 굴리기 애니메이션
@@ -1325,7 +1393,20 @@ const initAstralParty = () => {
       diceRenderer.render(diceScene, diceCamera);
     }
 
-    animateDice();
+    // 초기 1회 정지 프레임 렌더 후, 화면에 보일 때만 루프 실행
+    diceRenderer.render(diceScene, diceCamera);
+    observeVisibility(diceContainer || luckyDiceCanvas, (shouldRun) => {
+      isDiceRenderingActive = shouldRun;
+      if (shouldRun) {
+        diceClock.getDelta();
+        if (diceRafId === null) {
+          diceRafId = requestAnimationFrame(animateDice);
+        }
+      } else if (diceRafId !== null) {
+        cancelAnimationFrame(diceRafId);
+        diceRafId = null;
+      }
+    });
 
     // 리사이즈 핸들러
     const handleDiceResize = () => {
@@ -1686,11 +1767,18 @@ const initAstralParty = () => {
 
     if (lightboxImg && fullSrc) {
       lightboxImg.style.opacity = '0';
-      setTimeout(() => {
-        lightboxImg.src = fullSrc;
-        lightboxImg.alt = title;
+      lightboxImg.alt = title;
+      if (lightboxImg.getAttribute('src') === fullSrc && lightboxImg.complete) {
         lightboxImg.style.opacity = '1';
-      }, 100);
+      } else {
+        lightboxImg.onload = () => {
+          lightboxImg.style.opacity = '1';
+        };
+        lightboxImg.src = fullSrc;
+        if (lightboxImg.complete) {
+          lightboxImg.style.opacity = '1';
+        }
+      }
     }
 
     if (lightboxTitle) lightboxTitle.textContent = title;
