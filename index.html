@@ -115,22 +115,6 @@
 
         <!-- 고급 시네마틱 비네트 & 가독성 그라디언트 스크림 (텍스트는 선명하게, 일러스트는 생생하게) -->
         <div class="hero-cinematic-scrim" aria-hidden="true"></div>
-
-        <!-- 전체화면 씬 속 3D 깊이감으로 떠있는 인터랙티브 캐릭터 & 보드 하이라이트 핀 -->
-        <div class="hero-scene-pins" id="heroScenePins" aria-hidden="true">
-          <div class="scene-pin pin-table" style="top: 55%; left: 52%;" data-depth="2.0">
-            <span class="pin-dot"></span>
-            <span class="pin-label">🎲 4인 실시간 배틀 보드</span>
-          </div>
-          <div class="scene-pin pin-skills" style="top: 24%; left: 66%;" data-depth="2.6">
-            <span class="pin-dot"></span>
-            <span class="pin-label">⚡ 전략 카드 &amp; 필살기</span>
-          </div>
-          <div class="scene-pin pin-party" style="top: 72%; left: 80%;" data-depth="1.6">
-            <span class="pin-dot"></span>
-            <span class="pin-label">💖 30+ 매력적인 캐릭터</span>
-          </div>
-        </div>
       </div>
 
       <!-- 우측 상단 소형 몰입 모드 아이콘 버튼 (클릭 시 모든 UI 숨김 / 클릭 또는 스크롤 시 해제) -->
@@ -170,15 +154,15 @@
 
           <div class="hero-stats-strip">
             <div class="stat-item">
-              <h4>4 PLAYERS</h4>
+              <h4><span class="stat-num">4</span> <span class="stat-unit">PLAYERS</span></h4>
               <p>실시간 온라인 대전</p>
             </div>
             <div class="stat-item">
-              <h4>30+ HEROINES</h4>
+              <h4><span class="stat-num">30+</span> <span class="stat-unit">HEROINES</span></h4>
               <p>매력적인 파티 캐릭터</p>
             </div>
             <div class="stat-item">
-              <h4>60+ CARDS</h4>
+              <h4><span class="stat-num">60+</span> <span class="stat-unit">CARDS</span></h4>
               <p>전략 배틀 &amp; 함정 카드</p>
             </div>
           </div>
@@ -429,23 +413,11 @@
     </section>
 
     <!-- --------------------------------------------------------------------
-         4. 스팀 게임 다운로드 & 컴퓨터 권장 사양 (Steam & System Specs)
+         4. 실제 인게임 미디어 & 스크린샷 갤러리 (In-Game Media Gallery)
          -------------------------------------------------------------------- -->
-    <section class="section steam-specs-section" id="specs">
+    <section class="section gallery-section" id="gallery">
       <div class="container">
-        <div class="steam-cta-banner">
-          <div class="steam-cta-text">
-            <h3>지금 스팀에서 무료로 플레이하세요!</h3>
-          </div>
-          <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="steam-cta-logo-btn" aria-label="Steam에서 무료로 플레이하기" title="Steam 상점에서 Astral Party 무료 플레이">
-            <img src="/assets/aistudio/logo_steam_3a4d0813.svg" alt="STEAM" class="steam-cta-logo-img" width="144" height="36" />
-          </a>
-        </div>
-
-        <!-- ==================================================================
-             [신규 추가] 실제 인게임 미디어 & 스크린샷 갤러리 영역
-             ================================================================== -->
-        <div class="ingame-gallery-section" id="gallery">
+        <div class="ingame-gallery-section">
           <div class="gallery-header">
             <div class="section-badge"><span class="dot"></span>IN-GAME MEDIA &amp; SHOWCASE</div>
             <h2 class="gallery-title">실제 인게임 플레이 &amp; 갤러리</h2>
@@ -646,6 +618,22 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         5. 스팀 게임 다운로드 & 컴퓨터 권장 사양 (Steam & System Specs)
+         -------------------------------------------------------------------- -->
+    <section class="section steam-specs-section" id="specs">
+      <div class="container">
+        <div class="steam-cta-banner">
+          <div class="steam-cta-text">
+            <h3>지금 스팀에서 무료로 플레이하세요!</h3>
+          </div>
+          <a href="https://store.steampowered.com/app/2622000/Astral_Party/" target="_blank" rel="noopener noreferrer" class="steam-cta-logo-btn" aria-label="Steam에서 무료로 플레이하기" title="Steam 상점에서 Astral Party 무료 플레이">
+            <img src="/assets/aistudio/logo_steam_3a4d0813.svg" alt="STEAM" class="steam-cta-logo-img" width="144" height="36" />
+          </a>
         </div>
 
         <div class="specs-box">

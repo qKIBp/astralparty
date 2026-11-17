@@ -92,6 +92,7 @@ html {
   font-size: 16px;
   scroll-behavior: auto; /* Lenis가 부드러운 스크롤을 관리하므로 기본 smooth는 끕니다 */
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 body {
@@ -532,7 +533,7 @@ ul, ol {
 
 .hero-stats-strip {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -611,74 +612,6 @@ ul, ol {
     linear-gradient(90deg, rgba(9, 11, 24, 0.94) 0%, rgba(9, 11, 24, 0.8) 32%, rgba(9, 11, 24, 0.35) 65%, rgba(9, 11, 24, 0.55) 100%),
     linear-gradient(180deg, rgba(9, 11, 24, 0.85) 0%, transparent 16%, transparent 75%, #0e1020 100%);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* 전체화면 씬 속 3D 깊이감으로 떠있는 인터랙티브 핀들 */
-.hero-scene-pins {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-  transform-style: preserve-3d;
-}
-
-.scene-pin {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(14, 18, 38, 0.88);
-  border: 1.5px solid rgba(255, 255, 255, 0.38);
-  border-radius: var(--radius-full);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 18px rgba(239, 37, 203, 0.3);
-  color: #ffffff;
-  font-size: 0.825rem;
-  font-weight: 800;
-  white-space: nowrap;
-  pointer-events: auto;
-  cursor: default;
-  will-change: transform;
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.scene-pin:hover {
-  border-color: #f43f5e;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7), 0 0 24px rgba(244, 63, 94, 0.5);
-}
-
-.scene-pin .pin-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #f43f5e;
-  box-shadow: 0 0 8px #f43f5e;
-  animation: liveDotPulse 1.8s ease-in-out infinite;
-}
-
-.scene-pin.pin-table {
-  border-color: rgba(253, 224, 71, 0.6);
-}
-
-.scene-pin.pin-table .pin-dot {
-  background-color: #fde047;
-  box-shadow: 0 0 8px #fde047;
-}
-
-.scene-pin.pin-skills {
-  border-color: rgba(56, 189, 248, 0.6);
-}
-
-.scene-pin.pin-skills .pin-dot {
-  background-color: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
-}
-
-@keyframes liveDotPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.4); }
 }
 
 /* 2. 히어로 전체화면 오버레이 컨테이너 */
@@ -808,16 +741,7 @@ body.immersion-mode-active .hero-fullscreen-hud {
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* 3. 인게임 3D 씬 핀 완전 숨김 */
-body.immersion-mode-active .hero-scene-pins {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: opacity 0.35s ease;
-}
-
-
-
-/* 4. [요청 반영] 플로팅 이벤트 배지 위젯, 다시열기 칩, 맨 위로 가기 버튼 완전 숨김 */
+/* 3. [요청 반영] 플로팅 이벤트 배지 위젯, 다시열기 칩, 맨 위로 가기 버튼 완전 숨김 */
 body.immersion-mode-active .astral-floating-widget,
 body.immersion-mode-active .floating-widget-reopen-chip,
 body.immersion-mode-active .back-to-top-btn {
@@ -827,7 +751,7 @@ body.immersion-mode-active .back-to-top-btn {
   transition: opacity 0.3s ease, transform 0.3s ease !important;
 }
 
-/* 5. 우측 상단 몰입 모드 버튼 자체도 완전 숨김 */
+/* 4. 우측 상단 몰입 모드 버튼 자체도 완전 숨김 */
 body.immersion-mode-active .hero-immersion-quick-btn {
   opacity: 0 !important;
   pointer-events: none !important;
@@ -835,14 +759,14 @@ body.immersion-mode-active .hero-immersion-quick-btn {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* 6. 시네마틱 스크림 그라디언트도 완전히 걷어내어 원본 아트 100% 클리어 노출 */
+/* 5. 시네마틱 스크림 그라디언트도 완전히 걷어내어 원본 아트 100% 클리어 노출 */
 body.immersion-mode-active .hero-cinematic-scrim {
   opacity: 0 !important;
   pointer-events: none !important;
   transition: opacity 0.5s ease;
 }
 
-/* 7. 몰입 모드 시 일러스트 확대 및 와이드 조명 효과 */
+/* 6. 몰입 모드 시 일러스트 확대 및 와이드 조명 효과 */
 body.immersion-mode-active .hero-fullscreen-art-wrap {
   transform: scale(1.15);
 }
@@ -857,9 +781,6 @@ body.immersion-mode-active .hero-cursor-spotlight {
   .hero-cinematic-scrim {
     background: 
       linear-gradient(180deg, rgba(9, 11, 24, 0.92) 0%, rgba(9, 11, 24, 0.75) 45%, rgba(9, 11, 24, 0.85) 100%);
-  }
-  .scene-pin {
-    display: none;
   }
 }
 
@@ -1148,6 +1069,7 @@ body.immersion-mode-active .hero-cursor-spotlight {
   display: block;
   outline: none;
   cursor: grab;
+  touch-action: pan-y;
 }
 
 #board-3d-canvas:active {
@@ -1625,11 +1547,18 @@ body.immersion-mode-active .hero-cursor-spotlight {
 }
 
 /* ==========================================================================
-   [4-1. 실제 인게임 미디어 & 스크린샷 갤러리 (In-Game Media Gallery)]
+   [4. 실제 인게임 미디어 & 스크린샷 갤러리 섹션 (In-Game Media Gallery)]
    ========================================================================== */
+.gallery-section {
+  background: rgba(18, 14, 48, 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .ingame-gallery-section {
-  margin-top: 10px;
-  margin-bottom: 70px;
+  margin-top: 0;
+  margin-bottom: 0;
   position: relative;
 }
 
@@ -2564,12 +2493,16 @@ body.immersion-mode-active .hero-cursor-spotlight {
 
 .footer-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
   font-size: 0.95rem;
 }
 
 .footer-links a {
   color: #e2e8f0;
+  white-space: nowrap;
+  padding: 4px 0;
   transition: color var(--transition-fast);
 }
 
@@ -2802,9 +2735,129 @@ body.immersion-mode-active .hero-cursor-spotlight {
   .nav-link:active {
     transform: scale(0.98) !important;
   }
+  /* 3D 보드판 분할 레이아웃 태블릿/모바일 공통 세로 스택 전환 */
+  .section-fullscreen-3d {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    min-height: auto;
+    padding-top: 64px;
+    padding-bottom: 52px;
+  }
+
+  .board-3d-top-bar {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    text-align: center;
+    padding: 4px 16px;
+    margin-bottom: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .board-3d-top-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dice-quick-pills {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    max-width: none;
+  }
+
+  .dice-pill-btn {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    font-size: 0.84rem;
+  }
+
+  .board-3d-split-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  .board-3d-canvas-wrap {
+    height: 430px;
+    min-height: 360px;
+  }
+
+  .board-3d-panel-wrap {
+    padding: 20px 24px 8px;
+    height: auto;
+  }
+
+  .board-3d-panel-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+  }
+
+  .hero-fullscreen-container {
+    padding-top: 96px;
+    padding-bottom: 52px;
+  }
+
+  .hero-fullscreen-hud {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.15rem, 9.5vw, 3.2rem);
+    margin-bottom: 24px;
+  }
+
+  .hero-stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    align-items: start;
+    padding-top: 20px;
+  }
+
+  .stat-item {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .stat-item h4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .stat-item .stat-num {
+    font-size: clamp(1.2rem, 5vw, 1.55rem);
+  }
+
+  .stat-item .stat-unit {
+    font-size: clamp(0.72rem, 3vw, 0.92rem);
+    letter-spacing: 0.02em;
+  }
+
+  .stat-item p {
+    font-size: clamp(0.72rem, 2.7vw, 0.82rem);
+    line-height: 1.35;
+  }
 
   .hero-immersion-quick-btn {
     top: 84px;
@@ -2826,74 +2879,80 @@ body.immersion-mode-active .hero-cursor-spotlight {
     padding-bottom: 70px;
   }
 
-  /* 3D 보드판 분할 레이아웃 모바일/태블릿 대응 */
+  /* 3D 보드판 분할 레이아웃 모바일 미세 조정 */
   .section-fullscreen-3d {
-    height: auto;
-    min-height: auto;
-    padding-top: 60px;
-    padding-bottom: 50px;
-  }
-
-  .board-3d-split-layout {
-    grid-template-columns: 1fr;
-    height: auto;
-    min-height: auto;
+    padding-top: 52px;
+    padding-bottom: 44px;
   }
 
   .board-3d-canvas-wrap {
-    height: 48vh;
-    min-height: 340px;
+    min-width: 0;
+    height: 44vh;
+    min-height: 300px;
+    max-height: 390px;
   }
 
   .board-3d-panel-wrap {
-    padding: 24px 20px;
-    height: auto;
+    min-width: 0;
+    padding: 16px 16px 8px;
   }
 
   .board-3d-panel-inner {
+    min-width: 0;
     max-width: 100%;
+    gap: 16px;
   }
 
   .board-3d-top-bar {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 16px;
+    overflow-x: visible;
+    padding: 0 14px;
     margin-bottom: 12px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .board-3d-top-bar::-webkit-scrollbar {
-    display: none;
   }
 
   .dice-quick-pills {
-    max-width: none;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+    padding: 6px;
+    border-radius: var(--radius-lg);
   }
 
   .dice-pill-btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    width: 100%;
+    min-width: 0;
+    padding: 8px 4px;
+    font-size: clamp(0.72rem, 2.8vw, 0.82rem);
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .dice-pill-btn .dice-num {
+    font-size: 0.95rem;
   }
 
   .board-dice-control-area {
-    height: 230px;
+    height: 220px;
+  }
+
+  .dice-3d-hint {
+    max-width: calc(100% - 24px);
+    padding: 4px 10px;
+    font-size: 0.7rem;
   }
 
   .notice-banner-card {
-    height: 145px !important;
+    height: 140px !important;
+  }
+
+  .notice-banner-content {
+    width: 60%;
+    padding: 0 12px;
   }
 
   .notice-banner-title,
   .purchase-banner-title {
-    font-size: 2.1rem !important;
+    font-size: clamp(1.45rem, 6vw, 2.1rem) !important;
   }
 
   .notice-banner-title {
@@ -2905,17 +2964,26 @@ body.immersion-mode-active .hero-cursor-spotlight {
   }
 
   .minimal-tile-card {
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 112px 1fr;
     padding: 12px 14px;
-    gap: 14px;
+    gap: 12px;
   }
 
   .minimal-card-media {
     height: 80px;
   }
 
+  .minimal-card-info {
+    min-width: 0;
+  }
+
+  .minimal-card-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   .minimal-card-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .minimal-card-desc {
@@ -2926,11 +2994,33 @@ body.immersion-mode-active .hero-cursor-spotlight {
     padding: 28px;
     text-align: center;
     justify-content: center;
+    margin-bottom: 40px;
   }
 
   .footer-top, .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .footer-top {
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+
+  .footer-links {
+    width: 100%;
+    gap: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    padding-top: 20px;
+    gap: 14px;
+  }
+
+  .back-to-top-btn {
+    font-size: 0.92rem;
+    padding: 9px 18px;
   }
 
   /* 플로팅 이벤트 버튼 및 모달 모바일 최적화 */

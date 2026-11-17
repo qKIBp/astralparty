@@ -183,10 +183,17 @@ const initAstralParty = () => {
     const scene = new THREE.Scene();
     scene.background = null;
 
-    // 카메라(Camera) 생성 - 좌측 55% 영역에 보드판이 알맞고 여유롭게 프레이밍
+    // 카메라(Camera) 생성 - 데스크톱/모바일 비율에 맞춰 보드판 전체가 여유롭게 프레이밍
     const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
-    camera.position.set(0, 15, 20);
-    camera.lookAt(0, 0, 0);
+    const updateCameraFraming = (w, h) => {
+      const aspect = w / Math.max(1, h);
+      const distFactor = aspect < 1.0 ? Math.min(1.45, 1.02 / aspect) : 1;
+      camera.aspect = aspect;
+      camera.position.set(0, 15 * distFactor, 20 * distFactor);
+      camera.lookAt(0, 0, 0);
+      camera.updateProjectionMatrix();
+    };
+    updateCameraFraming(width, height);
 
     // 렌더러(Renderer) 생성 (투명도 alpha: true)
     const renderer = new THREE.WebGLRenderer({
@@ -195,7 +202,7 @@ const initAstralParty = () => {
       alpha: true,
       powerPreference: 'high-performance',
     });
-    renderer.setSize(width, height);
+    renderer.setSize(width, height, false);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     if (renderer.outputColorSpace) {
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -710,15 +717,25 @@ const initAstralParty = () => {
 
     animate();
 
-    // 화면 리사이즈 (좌측 캔버스 랩 크기 기준)
-    window.addEventListener('resize', () => {
-      const canvasWrap = document.getElementById('board3DCanvasWrap') || canvas3D.parentElement;
-      width = canvasWrap && canvasWrap.clientWidth > 0 ? canvasWrap.clientWidth : window.innerWidth;
-      height = canvasWrap && canvasWrap.clientHeight > 0 ? canvasWrap.clientHeight : window.innerHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-    });
+    // 화면 리사이즈 (캔버스 랩 크기 기준 + 모바일 비율 대응)
+    const handleBoardResize = () => {
+      const wrap = document.getElementById('board3DCanvasWrap') || canvas3D.parentElement;
+      const nextWidth = wrap && wrap.clientWidth > 0 ? wrap.clientWidth : window.innerWidth;
+      const nextHeight = wrap && wrap.clientHeight > 0 ? wrap.clientHeight : window.innerHeight;
+      if (nextWidth > 0 && nextHeight > 0) {
+        width = nextWidth;
+        height = nextHeight;
+        updateCameraFraming(width, height);
+        renderer.setSize(width, height, false);
+      }
+    };
+
+    window.addEventListener('resize', handleBoardResize);
+    if (typeof ResizeObserver !== 'undefined' && canvasWrap) {
+      const boardResizeObserver = new ResizeObserver(handleBoardResize);
+      boardResizeObserver.observe(canvasWrap);
+    }
+    setTimeout(handleBoardResize, 200);
   }
 
   // --------------------------------------------------------------------------
@@ -789,14 +806,12 @@ const initAstralParty = () => {
     heroTl
       .from('.hero-badge-row', { y: -16, opacity: 0, delay: 0.1, clearProps: 'all' })
       .from('.hero-title', { y: 24, opacity: 0, clearProps: 'all' }, '-=0.5')
-      .from('.hero-stats-strip .stat-item', { scale: 0.95, opacity: 0, stagger: 0.08, clearProps: 'all' }, '-=0.3')
-      .from('.scene-pin', { scale: 0, opacity: 0, stagger: 0.12, duration: 0.6, ease: 'back.out(1.7)', clearProps: 'all' }, '-=0.4');
+      .from('.hero-stats-strip .stat-item', { scale: 0.95, opacity: 0, stagger: 0.08, clearProps: 'all' }, '-=0.3');
 
     // [B. 대표 일러스트 전체화면 인터랙티브 3D 패럴렉스 & 마우스 반응 시스템]
     const heroSectionEl = document.querySelector('.hero-section');
     const heroArtWrapEl = document.getElementById('heroArtWrap');
     const heroSpotlightEl = document.getElementById('heroCursorSpotlight');
-    const scenePinsEls = document.querySelectorAll('.scene-pin');
     const heroHudEl = document.getElementById('heroHud');
     const toggleImmersionBtn = document.getElementById('toggleImmersionBtn');
 
@@ -867,14 +882,6 @@ const initAstralParty = () => {
           heroSpotlightEl.style.left = `${currentSpotX.toFixed(1)}px`;
           heroSpotlightEl.style.top = `${currentSpotY.toFixed(1)}px`;
         }
-
-        // 전체화면 씬 속 3D 깊이감 핀 위치 시차 변위 적용
-        scenePinsEls.forEach((pin) => {
-          const depth = parseFloat(pin.getAttribute('data-depth') || '1.8');
-          const pinShiftX = mouseX * depth * 22;
-          const pinShiftY = mouseY * depth * 16;
-          pin.style.transform = `translate3d(${pinShiftX.toFixed(1)}px, ${pinShiftY.toFixed(1)}px, ${depth * 30}px)`;
-        });
 
         // 전면 HUD 텍스트 레이어의 은은한 반대 방향 시차
         if (heroHudEl) {
