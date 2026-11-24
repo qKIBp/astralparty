@@ -1318,11 +1318,15 @@ body.immersion-mode-active .hero-cursor-spotlight {
   pointer-events: none;
 }
 
-/* 1번 NOTICE 및 5번 PURCHASE 공통 타이틀 스타일 (Pretendard 통일) */
+/* 1번 NOTICE, 2번 CHARACTER, 3번 CARDS, 4번 MAPS, 5번 PURCHASE, 6번 COMMUNITY 공통 타이틀 스타일 (6종 완전 동일 크기 통일) */
 .notice-banner-title,
-.purchase-banner-title {
+.purchase-banner-title,
+.character-banner-title,
+.cards-banner-title,
+.maps-banner-title,
+.community-banner-title {
   font-family: var(--font-family);
-  font-size: 2.85rem !important; /* 두 배너 완전 동일한 고정 폰트 크기 */
+  font-size: clamp(1.75rem, 2.45vw, 2.55rem) !important; /* 모든 배너 완전 동일 폰트 크기 */
   font-weight: 900;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -1387,6 +1391,169 @@ body.immersion-mode-active .hero-cursor-spotlight {
      0 8px 0 #78350f,
      0 12px 28px rgba(0, 0, 0, 0.75);
   filter: drop-shadow(0 0 18px rgba(251, 191, 36, 0.65));
+}
+
+/* [2번 파티 캐릭터 전용 풀 배너 카드 - 스카이 블루 테마 & CHARACTER 타이틀] */
+.character-banner-card {
+  border-color: rgba(56, 189, 248, 0.65) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(56, 189, 248, 0.35) !important;
+}
+
+.character-banner-card:hover {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.85),
+    0 0 36px rgba(56, 189, 248, 0.65) !important;
+}
+
+.character-banner-card .notice-banner-content {
+  width: 57%;
+  padding: 0 10px;
+}
+
+.character-banner-title {
+  color: #ffffff;
+  text-shadow:
+    -2px -2px 0 #1e3a8a,
+     2px -2px 0 #1e3a8a,
+    -2px  2px 0 #1e3a8a,
+     2px  2px 0 #1e3a8a,
+     0px -2px 0 #1e3a8a,
+     0px  2px 0 #1e3a8a,
+    -2px  0px 0 #1e3a8a,
+     2px  0px 0 #1e3a8a,
+     0 4px 0 #1d4ed8,
+     0 8px 0 #1e3a8a,
+     0 12px 28px rgba(0, 0, 0, 0.72);
+  filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.68));
+}
+
+/* [3번 배틀 & 함정 카드 전용 풀 배너 카드 - 바이올렛 인디고 테마 & CARDS 좌측 배치] */
+.cards-banner-card {
+  border-color: rgba(165, 180, 252, 0.7) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(129, 140, 248, 0.38) !important;
+}
+
+.cards-banner-card:hover {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.85),
+    0 0 36px rgba(129, 140, 248, 0.65) !important;
+}
+
+.cards-banner-card .notice-banner-bg {
+  object-position: center right;
+}
+
+.cards-banner-card .notice-banner-content {
+  width: 46%;
+  padding: 0 10px;
+}
+
+.cards-banner-title {
+  color: #ffffff;
+  text-shadow:
+    -2px -2px 0 #312e81,
+     2px -2px 0 #312e81,
+    -2px  2px 0 #312e81,
+     2px  2px 0 #312e81,
+     0px -2px 0 #312e81,
+     0px  2px 0 #312e81,
+    -2px  0px 0 #312e81,
+     2px  0px 0 #312e81,
+     0 4px 0 #4f46e5,
+     0 8px 0 #312e81,
+     0 12px 28px rgba(0, 0, 0, 0.72);
+  filter: drop-shadow(0 0 18px rgba(129, 140, 248, 0.7));
+}
+
+/* [4번 테마 보드 맵 전용 풀 배너 카드 - 에메랄드 테마 & MAPS 우측 배치] */
+.maps-banner-card {
+  border-color: rgba(16, 185, 129, 0.65) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(16, 185, 129, 0.35) !important;
+}
+
+.maps-banner-card:hover {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.85),
+    0 0 36px rgba(16, 185, 129, 0.65) !important;
+}
+
+.maps-banner-card .notice-banner-bg {
+  object-position: center left;
+}
+
+.maps-banner-card .notice-banner-content {
+  left: auto;
+  right: 0;
+  width: 55%;
+}
+
+.maps-banner-title {
+  color: #ffffff;
+  text-shadow:
+    -2px -2px 0 #064e3b,
+     2px -2px 0 #064e3b,
+    -2px  2px 0 #064e3b,
+     2px  2px 0 #064e3b,
+     0px -2px 0 #064e3b,
+     0px  2px 0 #064e3b,
+    -2px  0px 0 #064e3b,
+     2px  0px 0 #064e3b,
+     0 4px 0 #047857,
+     0 8px 0 #064e3b,
+     0 12px 28px rgba(0, 0, 0, 0.72);
+  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.68));
+}
+
+/* [6번 커뮤니티 전용 풀 배너 카드 - 마젠타 핑크 테마 & COMMUNITY 우측 배치] */
+.community-banner-card {
+  border-color: rgba(236, 72, 153, 0.7) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(236, 72, 153, 0.38) !important;
+}
+
+.community-banner-card:hover {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.85),
+    0 0 36px rgba(236, 72, 153, 0.65) !important;
+}
+
+.community-banner-card .notice-banner-bg {
+  object-position: center left;
+}
+
+.community-banner-card .notice-banner-content {
+  left: auto;
+  right: 0;
+  width: 51%;
+  padding: 0 8px;
+}
+
+.community-banner-title {
+  color: #ffffff;
+  text-shadow:
+    -2px -2px 0 #831843,
+     2px -2px 0 #831843,
+    -2px  2px 0 #831843,
+     2px  2px 0 #831843,
+     0px -2px 0 #831843,
+     0px  2px 0 #831843,
+    -2px  0px 0 #831843,
+     2px  0px 0 #831843,
+     0 4px 0 #be185d,
+     0 8px 0 #831843,
+     0 12px 28px rgba(0, 0, 0, 0.72);
+  filter: drop-shadow(0 0 18px rgba(236, 72, 153, 0.7));
 }
 
 @keyframes cardPopIn {
@@ -2795,6 +2962,15 @@ body.immersion-mode-active .hero-cursor-spotlight {
     max-width: 600px;
     margin: 0 auto;
   }
+
+  .notice-banner-title,
+  .purchase-banner-title,
+  .character-banner-title,
+  .cards-banner-title,
+  .maps-banner-title,
+  .community-banner-title {
+    font-size: 2.5rem !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2948,8 +3124,74 @@ body.immersion-mode-active .hero-cursor-spotlight {
   }
 
   .notice-banner-title,
-  .purchase-banner-title {
-    font-size: clamp(1.45rem, 6vw, 2.1rem) !important;
+  .purchase-banner-title,
+  .character-banner-title,
+  .cards-banner-title,
+  .maps-banner-title,
+  .community-banner-title {
+    font-size: clamp(1.25rem, 4.9vw, 2.05rem) !important;
+  }
+
+  .cards-banner-card .notice-banner-content {
+    width: 48%;
+    padding: 0 8px;
+  }
+
+  .cards-banner-title {
+    text-shadow:
+      -1.5px -1.5px 0 #312e81,
+       1.5px -1.5px 0 #312e81,
+      -1.5px  1.5px 0 #312e81,
+       1.5px  1.5px 0 #312e81,
+       0 3px 0 #4f46e5,
+       0 6px 0 #312e81,
+       0 10px 20px rgba(0, 0, 0, 0.72);
+  }
+
+  .maps-banner-card .notice-banner-content {
+    left: auto;
+    right: 0;
+    width: 58%;
+  }
+
+  .community-banner-card .notice-banner-content {
+    left: auto;
+    right: 0;
+    width: 51%;
+    padding: 0 6px;
+  }
+
+  .community-banner-title {
+    text-shadow:
+      -1.5px -1.5px 0 #831843,
+       1.5px -1.5px 0 #831843,
+      -1.5px  1.5px 0 #831843,
+       1.5px  1.5px 0 #831843,
+       0 3px 0 #be185d,
+       0 6px 0 #831843,
+       0 10px 20px rgba(0, 0, 0, 0.72);
+  }
+
+  .maps-banner-title {
+    text-shadow:
+      -1.5px -1.5px 0 #064e3b,
+       1.5px -1.5px 0 #064e3b,
+      -1.5px  1.5px 0 #064e3b,
+       1.5px  1.5px 0 #064e3b,
+       0 3px 0 #047857,
+       0 6px 0 #064e3b,
+       0 10px 20px rgba(0, 0, 0, 0.72);
+  }
+
+  .character-banner-title {
+    text-shadow:
+      -1.5px -1.5px 0 #1e3a8a,
+       1.5px -1.5px 0 #1e3a8a,
+      -1.5px  1.5px 0 #1e3a8a,
+       1.5px  1.5px 0 #1e3a8a,
+       0 3px 0 #1d4ed8,
+       0 6px 0 #1e3a8a,
+       0 10px 20px rgba(0, 0, 0, 0.72);
   }
 
   .notice-banner-title {
